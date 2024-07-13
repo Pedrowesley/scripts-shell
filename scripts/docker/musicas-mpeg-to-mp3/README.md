@@ -12,25 +12,12 @@ cd converter-mpeg-mp3
 Crie um arquivo chamado `Dockerfile` e adicione o seguinte conteúdo:
 
 ```Dockerfile
-# Use a imagem base oficial do Python
 FROM python:3.9-slim
-
-# Instale ffmpeg
 RUN apt-get update && apt-get install -y ffmpeg
-
-# Crie um diretório para os arquivos
-RUN mkdir /media
-
-# Defina o diretório de trabalho
 WORKDIR /app
-
-# Copie o script para o contêiner
 COPY converter.sh .
-
-# Torne o script executável
+COPY medias/ /medias/
 RUN chmod +x converter.sh
-
-# Comando para executar o script
 CMD ["./converter.sh"]
 ```
 
