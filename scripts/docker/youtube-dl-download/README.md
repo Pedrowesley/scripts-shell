@@ -37,7 +37,7 @@ DEST_DIR="/musicas"
 # Baixar as músicas
 for song in "${!songs[@]}"; do
   echo "Baixando: $song"
-  yt-dlp -x --audio-format mp3 -o "$DEST_DIR/%(title)s.%(ext)s" "${songs[$song]}"
+  yt-dlp -x --audio-format mp3 -o "$DEST_DIR/$song.%(ext)s" "${songs[$song]}"
 done
 
 echo "Download concluído!"
